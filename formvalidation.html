@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="formvalidattion.css">
+    <script src="formvalidation.js"></script>
+
+
+</head>
+
+<body>
+
+
+    <form>
+
+        <label for="fname">FIRST NAME :</label><br><br>
+        <input type="text" name="fname" id="fname" placeholder="first name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || 
+        (event.charCode > 96 && event.charCode < 123)">
+
+        <span id="message"></span><br>
+        <label for="lname"> LAST NAME :</label><br><br>
+        <input type="text" name="lname" id="lname" placeholder="last name" onkeypress="return 
+        (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)">
+
+        <span id="message1"></span> <br>
+        <label for="contact"> CONTACT :</label> <br><br>
+        <input type="text" name="contact" id="contact" minlength="10" maxlength="10" placeholder="+91"
+            onkeypress='return restrictAlphabets(event)' /><br><br>
+        <span id="number"></span>
+        <label for="date">DATE OF BIRTH :</label><br><br>
+        <input type="date" name="dates" id="dates" placeholder="date"><br><br>
+
+        <label for="email">EMAIL :</label><br><br>
+        <input type="text" name="email" id="email" placeholder="email" onblur="validateEmail(this);" /><br><br>
+
+        <label>GENDER :</label><br><br>
+
+        <input type="radio" name="male" id="male" value="male">
+        <label for="male">MALE</label>
+
+        <input type="radio" name="male" id="female" value="female">
+        <label for="female">FEMALE</label>
+        <br> <br>
+        <label for="states">STATE :</label> <br><br>
+        <select id="states"><br>
+            <option value="Select">SELECT</option>
+            <option value="Delhi">DELHI</option>
+            <option value="Punjab">PUNJAB</option>
+            <option value="Uttrakhand">UTTRAKHAND</option>
+            <option value="Haryana">HARYANA</option>
+            <option value="Chennai">CHENNAI</option>
+        </select><br><br>
+        <label for="file"> IMAGE UPLOAD :</label><br>
+
+        <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"> <br>
+
+        <input type="button" value="submit" onclick=validate()>
+        <input type="reset" value=" reset">
+    </form>
+    <img id="output" width="100" />
+    <span id="display">
+
+    </span>
+
+</body>
+
+</html>
