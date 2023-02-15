@@ -6,65 +6,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="formvalidattion.css">
-    <script src="formvalidation.js"></script>
+    <link rel="stylesheet" type="text/css" href="FormValidation.CSS">
+    <script src="FormValidation.JS"></script>
 
 
 </head>
 
 <body>
 
-
-    <form>
-
-        <label for="fname">FIRST NAME :</label><br><br>
-        <input type="text" name="fname" id="fname" placeholder="first name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || 
+    <div class="container">
+        <form>
+            <div class="main-input">
+                <label for="fname">First Name:</label>
+                <input type="text" name="fname" id="fname" placeholder="first name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || 
         (event.charCode > 96 && event.charCode < 123)">
+            </div>
+            <div class="main-input">
 
-        <span id="message"></span><br>
-        <label for="lname"> LAST NAME :</label><br><br>
-        <input type="text" name="lname" id="lname" placeholder="last name" onkeypress="return 
+                <span id="message"></span>
+                <label for="lname">Last Name:</label>
+                <input type="text" name="lname" id="lname" placeholder="last name" onkeypress="return 
         (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)">
+            </div>
+            <div class="main-input">
 
-        <span id="message1"></span> <br>
-        <label for="contact"> CONTACT :</label> <br><br>
-        <input type="text" name="contact" id="contact" minlength="10" maxlength="10" placeholder="+91"
-            onkeypress='return restrictAlphabets(event)' /><br><br>
-        <span id="number"></span>
-        <label for="date">DATE OF BIRTH :</label><br><br>
-        <input type="date" name="dates" id="dates" placeholder="date"><br><br>
+                <span id="message1"></span>
+                <label for="contact">Contact:</label>
+                <input type="text" name="contact" id="contact" minlength="10" maxlength="10" placeholder="+91"
+                    onkeypress='return restrictAlphabets(event)' />
+            </div>
+            <div class="main-input">
 
-        <label for="email">EMAIL :</label><br><br>
-        <input type="text" name="email" id="email" placeholder="email" onblur="validateEmail(this);" /><br><br>
+                <span id="number"></span>
+                <label for="date">Date Of Brith:</label>
+                <input type="date" name="dates" id="dates" placeholder="date">
+            </div>
+            <div class="main-input">
 
-        <label>GENDER :</label><br><br>
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email" placeholder="email" onblur="validateEmail(this);" />
+            </div>
+            <label>Gender:</label>
+            <div class="gender">
+                <input type="radio" name="male" id="male" value="male">
+                <label for="male">Male:</label>
 
-        <input type="radio" name="male" id="male" value="male">
-        <label for="male">MALE</label>
+                <input type="radio" name="male" id="female" value="female">
+                <label for="female">Female:</label>
+            </div>
+            <div class="states-card">
+                <label for="states">State:</label>
+                <select id="states">
+                    <option value="Select">Select</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Uttrakhand">Uttarakhand</option>
+                    <option value="Haryana">Mumbai</option>
+                    <option value="Chennai">Chennai</option>
+                </select>
+            </div>
+            <div class="chosse-file">
+                <label for="file">Image Upload:</label>
+                <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)">
+            </div>
 
-        <input type="radio" name="male" id="female" value="female">
-        <label for="female">FEMALE</label>
-        <br> <br>
-        <label for="states">STATE :</label> <br><br>
-        <select id="states"><br>
-            <option value="Select">SELECT</option>
-            <option value="Delhi">DELHI</option>
-            <option value="Punjab">PUNJAB</option>
-            <option value="Uttrakhand">UTTRAKHAND</option>
-            <option value="Haryana">HARYANA</option>
-            <option value="Chennai">CHENNAI</option>
-        </select><br><br>
-        <label for="file"> IMAGE UPLOAD :</label><br>
 
-        <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"> <br>
-
-        <input type="button" value="submit" onclick=validate()>
-        <input type="reset" value=" reset">
-    </form>
+            <div class="submit-button">
+                <input type="button" value="submit" onclick=validate()>
+                <input type="reset" value=" reset">
+            </div>
+        </form>
+    </div>
     <img id="output" width="100" />
-    <span id="display">
-
-    </span>
+    <span id="display"></span>
 
 </body>
 
